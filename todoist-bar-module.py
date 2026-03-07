@@ -14,6 +14,7 @@ from typing import Callable
 script_dir = os.path.dirname(os.path.abspath(__file__))
 secrets = dotenv_values(os.path.join(script_dir, ".env"))
 
+
 # Deprecated; use of local keyring discouraged for practical reasons
 def get_todoist_api_token_keyring() -> str:
     completed_process: CompletedProcess[bytes] = run(
@@ -90,7 +91,6 @@ def is_past_due(task: Task) -> bool:
 
     # .date() to compare date only and ignore time
     return date < datetime.now().date()
-
 
 
 def no_due(task: Task) -> bool:
