@@ -1,3 +1,4 @@
+import os
 from todoist_api_python.api import TodoistAPI
 from datetime import datetime
 from subprocess import run, CompletedProcess
@@ -10,7 +11,8 @@ from typing import Callable
 # Todoist Python API: https://pypi.org/project/todoist_api_python/
 # Todoist Python API Docs: https://doist.github.io/todoist-api-python/
 
-secrets = dotenv_values(".env")
+script_dir = os.path.dirname(os.path.abspath(__file__))
+secrets = dotenv_values(os.path.join(script_dir, ".env"))
 
 # Deprecated; use of local keyring discouraged for practical reasons
 def get_todoist_api_token_keyring() -> str:
