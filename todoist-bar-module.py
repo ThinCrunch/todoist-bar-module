@@ -79,7 +79,10 @@ def is_due_today(task: Task) -> bool:
     if task.due is None:
         return False
 
-    return task.due.date == datetime.now().strftime("%Y-%m-%d")
+    task_date = task.due.date
+    date = datetime(task_date.year, task_date.month, task_date.day).date()
+
+    return date == datetime.now().date()
 
 
 def is_past_due(task: Task) -> bool:
