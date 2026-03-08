@@ -30,6 +30,10 @@ def get_todoist_api_token_keyring() -> str:
 
 
 def get_todoist_api_token() -> str:
+    if secrets["TODOIST_API_TOKEN"] is None:
+        print("?token")
+        exit()
+
     return secrets["TODOIST_API_TOKEN"]
 
 
