@@ -1,3 +1,5 @@
+#!/bin/python
+
 import os
 from todoist_api_python.api import TodoistAPI
 from datetime import datetime
